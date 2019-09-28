@@ -76,3 +76,15 @@ Your procedure can (and should!) call those other procedures. Here is how our in
     translator.) You could also define JavaScript's while using recursion in Python.
 
     Hint 3: Extract the conditional expression and while loop body statements from while_stmt first.
+
+(6) JavaScripts Big Bang:  In class we saw one way to integrate our HTML Interpreter and our JavaScript interpreter to make a web browser. Our JavaScript interpreter returned a string, which was then rendered unchanged on the webpage.
+
+In practice, however, JavaScript output may include HTML tags and should be lexed, parsed and interpreted again. For example, on modern web browsers the following webpage ...
+
+     <html>
+     <script type="text/javascript">
+     document.write("Tags in <i>my</i> output should be processed.");
+     </script>
+     </html>
+
+Does not output the literal string "Tags in <i>my</i> output should be processed." Instead, the <i> tags are lexed, parsed and interpreted again, and the web page contains "Tags in my output should be processed." with the word "my" drawn in italics. This sort of recursive dependence -- in which intepreted HTML contains JavaScript which runs and creates new HTML which is then interpreted, and so on, is the heart of JavaScript's power. You can visualize it like a snake eating its own tail: http://en.wikipedia.org/wiki/Ouroboros. In this assignment you will extend our web browser so that the string produced by JavaScript is not merely passed to the graphics library as a word, but is instead lexed, parsed and interpreted as HTML. (For the purposes of this assignment, if JavaScript creates HTML, it must created only well-balanced tags.) Below is the top-level HTML Interpreter code for the web browser. You will not need to change any lexer definitions, token definitions, or anything about the JavaScript interpreter. Hint: The required extension can be made by changin as few as three lines (because you already know so much about this topic)! It does require you to understand how lexers, parser and interpreters all fit together. 
