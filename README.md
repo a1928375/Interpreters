@@ -5,3 +5,5 @@
 (2) Variable Lookup:  Adding variable lookup to the interpreter.
 
 (3) Evaluating Statements
+
+(4) Frames:  Return will throw an excception. Function Calls: new environments, catch return values.
